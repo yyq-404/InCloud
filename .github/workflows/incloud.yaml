@@ -40,24 +40,23 @@ jobs:
 
       - name: Running SubFinder for passive DNS enumeration
         run: |
-          subfinder -dL input/domains.txt -config config/subfinder-config.yaml -o output/passive_subdomains.txt
+         subfinder -v -dL input\domains.txt -config config/subfinder-config.yaml -o output/passive_subdomains.txt
         shell: bash
 
       - name: Running dnsx for valid DNS filtering 
         run: |
-          dnsx -l output/passive_subdomains.txt -t 50 | tee output/active_subdomains.txt
+          dnsx -trace -v -stats -recon -t 50 -l output\passive_subdomains.txt | tee output/active_subdomains.txt
         shell: bash
 
       - name: Running naabu to check top 1000 ports
         run: |
-          naabu -il output/active_subdomains.txt  -rate 10000 -top-ports 1000 | tee output/active_ports.txt
+          naabu -top-ports 1000 -rate 10000 -v -stats -list output\active_subdomains.txt | tee output/active_ports.txt
         shell: bash
 
 
       - name: Running httpx for HTTP webservers probbing
         run: |
-          httpx -l output/active_ports.txt -title
-          httpx -l output/active_ports.txt | tee output/active_urls.txt
+          httpx -sc -title -tech-detect -l output/active_ports.txt | tee output/active_urls.txt
         shell: bash
 
       - name: Sorting the output results
