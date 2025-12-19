@@ -55,7 +55,7 @@ jobs:
         
       - name: Running httpx for HTTP webservers probbing
         run: |
-          httpx -sc -title -tech-detect -l output/active_ports.txt | tee output/active_urls.txt
+          httpx -v -l output/active_ports.txt | tee output/active_urls.txt
         shell: bash
 
       - name: Sorting the output results
