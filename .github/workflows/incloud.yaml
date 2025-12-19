@@ -27,12 +27,12 @@ jobs:
 
       - name: Install ProjectDiscovery tools
         run: |
-          go install github.com/projectdiscovery/subfinder/v2@latest
-          go install github.com/projectdiscovery/dnsx@latest
-          go install github.com/projectdiscovery/naabu/v2@latest
-          go install github.com/projectdiscovery/httpx@latest
-          go install github.com/projectdiscovery/nuclei/v2@latest
-          go install github.com/projectdiscovery/mapcidr@latest
+          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder@latest
+          go install -v github.com/projectdiscovery/dnsx/cmd/dnsx@latest
+          go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu@latest
+          go install -v github.com/projectdiscovery/httpx/cmd/httpx@latest
+          go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei@latest
+          go install -v github.com/projectdiscovery/mapcidr/cmd/mapcidr@latest
 
       - name: Subfinder - passive DNS
         run: |
