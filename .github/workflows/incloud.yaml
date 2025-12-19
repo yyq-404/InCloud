@@ -67,7 +67,7 @@ jobs:
           unzip xray_linux_amd64.zip
           mv xray_linux_amd64 xray
           set +e ;for i in $(cat output/active_urls.txt ); do ./xray webscan --basic-crawler $i --html-output output/`date +%Y%m%d%H%M%S`.html;done
-          cat output/*.html >> output/xray.html
+          if ls output/*.html 1> /dev/null 2>&1; then cat output/*.html >> output/xray.html else echo "No Xray HTML reports generated." fi
         shell: bash
       
 
