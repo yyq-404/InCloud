@@ -31,12 +31,12 @@ jobs:
         env:
           GO111MODULE: on
         run: |
-          go get -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
-          go get -v github.com/projectdiscovery/dnsx/cmd/dnsx
-          go get -v github.com/projectdiscovery/naabu/v2/cmd/naabu
-          go get -v github.com/projectdiscovery/httpx/cmd/httpx
-          go get -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
-          go get -v github.com/projectdiscovery/mapcidr/cmd/mapcidr
+          go install -v github.com/projectdiscovery/subfinder/v2/cmd/subfinder
+          go install -v github.com/projectdiscovery/dnsx/cmd/dnsx
+          go install -v github.com/projectdiscovery/naabu/v2/cmd/naabu
+          go install -v github.com/projectdiscovery/httpx/cmd/httpx
+          go install -v github.com/projectdiscovery/nuclei/v2/cmd/nuclei
+          go install -v github.com/projectdiscovery/mapcidr/cmd/mapcidr
         shell: bash
 
 
