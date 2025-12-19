@@ -22,7 +22,7 @@ jobs:
 
       - name: Cache Go
         id: cache-go
-        uses: actions/cache@v2
+        uses: actions/cache@v4
         with:
           path: /home/runner/go
           key: ${{ runner.os }}-go
@@ -83,8 +83,8 @@ jobs:
           git add output/xray.html
       - name: Commit results to Github
         run: |
-          git config --local user.email "admin@inbug.org"
-          git config --global user.name "inbug-team"
+          git config --local user.email "makelifemuchsimpler@gmail.com"
+          git config --global user.name "yyq-404"
           git commit -m "InCloud Report" -a --allow-empty
       - name: Push changes
         uses: ad-m/github-push-action@master
