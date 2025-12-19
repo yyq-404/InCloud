@@ -63,18 +63,6 @@ jobs:
             -silent \
           | tee output/active_urls.txt
 
-      - name: Xray scan
-        run: |
-          wget -q https://github.com/chaitin/xray/releases/download/1.7.1/xray_linux_amd64.zip
-          unzip -o xray_linux_amd64.zip
-          chmod +x xray_linux_amd64
-          mv xray_linux_amd64 xray
-
-          ./xray webscan \
-            --url-file output/active_urls.txt \
-            --html-output output/xray.html \
-            --json-output output/xray.json || true
-
       - name: Commit results
         run: |
           git config user.email "makelifemuchsimpler@gmail.com"
